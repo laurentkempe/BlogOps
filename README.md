@@ -1,7 +1,7 @@
-﻿# BlogOps ![.NET](https://github.com/laurentkempe/BlogOps/workflows/.NET/badge.svg)
+﻿# BlogOps
 
 Tool to operate my blog at https://laurentkempe.com/.
-Inspired by [Frankenblog](https://khalidabuhakmeh.com/supercharge-blogging-with-frankenblog) from [@khalidabuhakmeh](https://github.com/khalidabuhakmeh).
+Inspired by [Frankenblog](https://khalidabuhakmeh.com/supercharge-blogging-with-frankenblog) from @khalidabuhakmeh.  
 
 ## Uses
 
@@ -21,7 +21,7 @@ Inspired by [Frankenblog](https://khalidabuhakmeh.com/supercharge-blogging-with-
   - [ ] Option to display or not drafts
 - [ ] Deploy BlogOps to the repository of my blog
 
-## V1.1
+##V1.1
 - [ ] Command to rename a draft
 
 ## V2
