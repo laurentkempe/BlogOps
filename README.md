@@ -11,7 +11,7 @@ Inspired by [Frankenblog](https://khalidabuhakmeh.com/supercharge-blogging-with-
 # Road Map
 
 ## V1
-- [ ] Command to create a new draft with some sample markdown as content
+- [x] Command to create a new draft with some sample markdown as content
 - [ ] Command to see a list of all drafts
   - [ ] See some information extracted from Markdown like title, tags
 - [ ] Command to publish a draft
