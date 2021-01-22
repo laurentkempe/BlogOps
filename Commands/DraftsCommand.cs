@@ -1,5 +1,7 @@
 ﻿using System.IO;
 using System.Threading.Tasks;
+using BlogOps.Blog;
+using BlogOps.Utils;
 using CliFx;
 using CliFx.Attributes;
 using Spectre.Console;
@@ -9,29 +11,39 @@ namespace BlogOps.Commands
     [Command("drafts", Description = "List all drafts blog post.")]
     public class DraftsCommand : ICommand
     {
-        public ValueTask ExecuteAsync(IConsole console)
+        public async ValueTask ExecuteAsync(IConsole console)
         {
-            const string draftsFolder = @".\source\_drafts";
-
-            // Create a table
             var table = new Table();
 
-            // Add some columns
-            table.AddColumn("Draft name");
+            table.AddColumn("Draft filename");
+            table.AddColumn("Title");
             table.AddColumn(new TableColumn("Created").Centered());
+            table.AddColumn(new TableColumn("Tags").Centered());
+            table.AddColumn(new TableColumn("Permalink").Centered());
 
-            foreach (var file in Directory.GetFiles(draftsFolder))
+            foreach (var draftPath in Directory.GetFiles(BlogSettings.DraftsFolder))
             {
-                var fileInfo = new FileInfo(file);
+                var (fileInfo, draftFrontMatter) = await GetDraftInfo(draftPath);
 
-                // Add some rows
-                table.AddRow($"{fileInfo.Name}", $"[green]{fileInfo.CreationTime}[/]");
+                table.AddRow($"{fileInfo.Name}", $"{draftFrontMatter.Title}", $"[green]{draftFrontMatter.Date}[/]", $"{draftFrontMatter.Tags}", $"{draftFrontMatter.PermaLink}");
             }
 
-            // Render the table to the console
             AnsiConsole.Render(table);
+        }
 
-            return default;
+        private static async Task<(FileInfo fileInfo, BlogFrontMatter draftFrontMatter)> GetDraftInfo(string draftPath)
+        {
+            var fileInfo = new FileInfo(draftPath);
+            var draftFrontMatter = await GetDraftFrontMatter(draftPath);
+
+            return (fileInfo, draftFrontMatter);
+        }
+
+        private static async Task<BlogFrontMatter> GetDraftFrontMatter(string draftPath)
+        {
+            var allText = await File.ReadAllTextAsync(draftPath);
+
+            return allText.GetFrontMatter<BlogFrontMatter>();
         }
     }
 }

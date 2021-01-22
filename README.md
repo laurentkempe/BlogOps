@@ -12,8 +12,8 @@ Inspired by [Frankenblog](https://khalidabuhakmeh.com/supercharge-blogging-with-
 
 ## V1
 - [x] Command to create a new draft with some sample markdown as content
-- [ ] Command to see a list of all drafts
-  - [ ] See some information extracted from Markdown like title, tags
+- [x] Command to see a list of all drafts
+  - [x] See some information extracted from Markdown like title, tags
 - [ ] Command to publish a draft
     - [ ] Adapting all dates
     - [ ] Moving it from draft to posts folder
