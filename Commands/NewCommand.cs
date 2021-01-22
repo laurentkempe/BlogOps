@@ -6,6 +6,7 @@ using BlogOps.Blog;
 using BlogOps.Utils;
 using CliFx;
 using CliFx.Attributes;
+using Spectre.Console;
 
 namespace BlogOps.Commands
 {
@@ -27,7 +28,7 @@ namespace BlogOps.Commands
             stringBuilder.AppendLine($"date: {date}");
             stringBuilder.AppendLine($"disqusIdentifier: {date:yyyyMMddhhmmss}");
             stringBuilder.AppendLine("coverSize: partial");
-            stringBuilder.AppendLine("tags: [\"ASP.NET Core\", \"Microsoft Azure\", \"Docker\"]");
+            stringBuilder.AppendLine("tags: ASP.NET Core, Microsoft Azure, Docker");
             stringBuilder.AppendLine("coverCaption: 'LO Ferré, Petite Anse, Martinique, France'");
             stringBuilder.AppendLine("coverImage: 'https://c7.staticflickr.com/9/8689/16775792438_e45283970c_h.jpg'");
             stringBuilder.AppendLine("thumbnailImage: 'https://c7.staticflickr.com/9/8689/16775792438_8366ee5732_q.jpg'");
@@ -49,6 +50,8 @@ namespace BlogOps.Commands
             var path = Path.Combine(BlogSettings.DraftsFolder, filename);
             
             await File.WriteAllTextAsync(path, stringBuilder.ToString());
+            
+            AnsiConsole.Markup($"Successfully created [green]{filename}[/]");
         }
     }
 }
