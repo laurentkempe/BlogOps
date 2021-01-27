@@ -21,7 +21,7 @@ Inspired by [Frankenblog](https://khalidabuhakmeh.com/supercharge-blogging-with-
   - [ ] Option to display or not drafts
 - [ ] Deploy BlogOps to the repository of my blog
 
-##V1.1
+## V1.1
 - [ ] Command to rename a draft
 
 ## V2
