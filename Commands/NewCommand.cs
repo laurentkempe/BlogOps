@@ -18,15 +18,15 @@ namespace BlogOps.Commands
         
         public async ValueTask ExecuteAsync(IConsole console)
         {
-            var date = DateTime.Now;
+            var now = DateTime.Now;
             var slug = Title.ToUrlSlug();
             
             var stringBuilder = new StringBuilder();
             stringBuilder.AppendLine("---");
             stringBuilder.AppendLine($"title: '{Title}'");
-            stringBuilder.AppendLine($"permalink: /{date:yyyy/MM/dd}/{slug}/");
-            stringBuilder.AppendLine($"date: {date}");
-            stringBuilder.AppendLine($"disqusIdentifier: {date:yyyyMMddhhmmss}");
+            stringBuilder.AppendLine(now.ToPermalink(slug));
+            stringBuilder.AppendLine($"date: {now}");
+            stringBuilder.AppendLine(now.ToDisqusIdentifier());
             stringBuilder.AppendLine("coverSize: partial");
             stringBuilder.AppendLine("tags: ASP.NET Core, Microsoft Azure, Docker");
             stringBuilder.AppendLine("coverCaption: 'LO Ferré, Petite Anse, Martinique, France'");

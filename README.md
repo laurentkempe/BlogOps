@@ -14,9 +14,9 @@ Inspired by [Frankenblog](https://khalidabuhakmeh.com/supercharge-blogging-with-
 - [x] Command to create a new draft with some sample markdown as content
 - [x] Command to see a list of all drafts
   - [x] See some information extracted from Markdown like title, tags
-- [ ] Command to publish a draft
-    - [ ] Adapting all dates
-    - [ ] Moving it from draft to posts folder
+- [x] Command to publish a draft
+    - [x] Adapting all dates
+    - [x] Moving it from draft to posts folder
 - [ ] Command to start local server and save page
   - [ ] Option to display or not drafts
 - [ ] Deploy BlogOps to the repository of my blog
