@@ -19,9 +19,10 @@ Inspired by [Frankenblog](https://khalidabuhakmeh.com/supercharge-blogging-with-
     - [x] Moving it from draft to posts folder
 - [x] Command to start local server
   - [x] Option to display or not drafts
-- [ ] Deploy BlogOps to the repository of my blog
+- [x] Deploy BlogOps to the repository of my blog
 
 ## V1.1
+- [ ] Command to work on a draft
 - [ ] Command to rename a draft
 
 ## V2
