@@ -22,7 +22,7 @@ Inspired by [Frankenblog](https://khalidabuhakmeh.com/supercharge-blogging-with-
 - [x] Deploy BlogOps to the repository of my blog
 
 ## V1.1
-- [ ] Command to work on a draft
+- [x] Command to edit a draft
 - [ ] Command to rename a draft
 
 ## V2
