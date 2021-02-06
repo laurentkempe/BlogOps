@@ -1,4 +1,4 @@
-﻿namespace BlogOps.Blog
+﻿namespace BlogOps.Commands.Blog
 {
     public static class BlogSettings
     {

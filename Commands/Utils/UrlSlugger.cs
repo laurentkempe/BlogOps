@@ -4,7 +4,7 @@ using System.Globalization;
 using System.Text;
 using System.Text.RegularExpressions;
 
-namespace BlogOps.Utils
+namespace BlogOps.Commands.Utils
 {
     public static class UrlSlugger
     {

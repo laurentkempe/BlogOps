@@ -4,7 +4,7 @@ using System.Linq;
 using JetBrains.Annotations;
 using YamlDotNet.Serialization;
 
-namespace BlogOps.Commands
+namespace BlogOps.Commands.Blog
 {
     [UsedImplicitly]
     public class BlogFrontMatter

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Globalization;
 
-namespace BlogOps.Blog
+namespace BlogOps.Commands.Blog
 {
     public static class BlogUtils
     {

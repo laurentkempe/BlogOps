@@ -1,7 +1,7 @@
 ﻿using System.IO;
 using System.Threading.Tasks;
-using BlogOps.Blog;
-using BlogOps.Utils;
+using BlogOps.Commands.Blog;
+using BlogOps.Commands.Utils;
 using CliFx;
 using CliFx.Attributes;
 using JetBrains.Annotations;

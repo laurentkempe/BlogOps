@@ -4,7 +4,7 @@ using Markdig.Extensions.Yaml;
 using Markdig.Syntax;
 using YamlDotNet.Serialization;
 
-namespace BlogOps.Utils
+namespace BlogOps.Commands.Utils
 {
     public static class MarkdownExtensions
     {
