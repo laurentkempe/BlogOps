@@ -1,4 +1,4 @@
-﻿# BlogOps
+﻿# BlogOps ![.NET](https://github.com/laurentkempe/BlogOps/workflows/.NET/badge.svg)
 
 Tool to operate my blog at https://laurentkempe.com/.
 Inspired by [Frankenblog](https://khalidabuhakmeh.com/supercharge-blogging-with-frankenblog) from [@khalidabuhakmeh](https://github.com/khalidabuhakmeh).  
