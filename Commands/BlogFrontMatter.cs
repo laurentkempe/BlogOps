@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using JetBrains.Annotations;
 using YamlDotNet.Serialization;
 
 namespace BlogOps.Commands
 {
+    [UsedImplicitly]
     public class BlogFrontMatter
     {
         [YamlMember(Alias = "title", Order = 0)]

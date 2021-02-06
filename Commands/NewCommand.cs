@@ -6,11 +6,13 @@ using BlogOps.Blog;
 using BlogOps.Utils;
 using CliFx;
 using CliFx.Attributes;
+using JetBrains.Annotations;
 using Spectre.Console;
 
 namespace BlogOps.Commands
 {
     [Command("new", Description = "Create a new draft blog post.")]
+    [UsedImplicitly]
     public class NewCommand : ICommand
     {
         [CommandParameter(0, Description = "Name of the post, will also be turned into slug for the url.")]

@@ -6,11 +6,13 @@ using BlogOps.Blog;
 using BlogOps.Utils;
 using CliFx;
 using CliFx.Attributes;
+using JetBrains.Annotations;
 using Spectre.Console;
 
 namespace BlogOps.Commands
 {
     [Command("publish", Description = "Publish a draft.")]
+    [UsedImplicitly]
     public class PublishCommand : ICommand
     {
         [CommandParameter(0, Description = "Filename of the draft.")]

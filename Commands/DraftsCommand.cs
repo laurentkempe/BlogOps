@@ -4,11 +4,13 @@ using BlogOps.Blog;
 using BlogOps.Utils;
 using CliFx;
 using CliFx.Attributes;
+using JetBrains.Annotations;
 using Spectre.Console;
 
 namespace BlogOps.Commands
 {
     [Command("drafts", Description = "List all drafts blog post.")]
+    [UsedImplicitly]
     public class DraftsCommand : ICommand
     {
         public async ValueTask ExecuteAsync(IConsole console)
