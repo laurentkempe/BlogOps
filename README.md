@@ -1,7 +1,7 @@
 ﻿# BlogOps
 
 Tool to operate my blog at https://laurentkempe.com/.
-Inspired by [Frankenblog](https://khalidabuhakmeh.com/supercharge-blogging-with-frankenblog) from @khalidabuhakmeh.  
+Inspired by [Frankenblog](https://khalidabuhakmeh.com/supercharge-blogging-with-frankenblog) from [@khalidabuhakmeh](https://github.com/khalidabuhakmeh).  
 
 ## Uses
 
