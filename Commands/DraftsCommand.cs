@@ -1,7 +1,5 @@
-﻿using System.IO;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using BlogOps.Commands.Blog;
-using BlogOps.Commands.Utils;
 using CliFx;
 using CliFx.Attributes;
 using JetBrains.Annotations;
@@ -23,29 +21,12 @@ namespace BlogOps.Commands
             table.AddColumn(new TableColumn("Tags").Centered());
             table.AddColumn(new TableColumn("Permalink").Centered());
 
-            foreach (var draftPath in Directory.GetFiles(BlogSettings.DraftsFolder))
+            await foreach (var (fileInfo, draftFrontMatter) in BlogUtils.GetDraftInfos())
             {
-                var (fileInfo, draftFrontMatter) = await GetDraftInfo(draftPath);
-
                 table.AddRow($"{fileInfo.Name}", $"{draftFrontMatter.Title}", $"[green]{draftFrontMatter.Date}[/]", $"{draftFrontMatter.Tags}", $"{draftFrontMatter.PermaLink}");
             }
 
             AnsiConsole.Render(table);
-        }
-
-        private static async Task<(FileInfo fileInfo, BlogFrontMatter draftFrontMatter)> GetDraftInfo(string draftPath)
-        {
-            var fileInfo = new FileInfo(draftPath);
-            var draftFrontMatter = await GetDraftFrontMatter(draftPath);
-
-            return (fileInfo, draftFrontMatter);
-        }
-
-        private static async Task<BlogFrontMatter> GetDraftFrontMatter(string draftPath)
-        {
-            var allText = await File.ReadAllTextAsync(draftPath);
-
-            return allText.GetFrontMatter<BlogFrontMatter>();
         }
     }
 }
