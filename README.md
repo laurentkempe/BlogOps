@@ -17,8 +17,8 @@ Inspired by [Frankenblog](https://khalidabuhakmeh.com/supercharge-blogging-with-
 - [x] Command to publish a draft
     - [x] Adapting all dates
     - [x] Moving it from draft to posts folder
-- [ ] Command to start local server and save page
-  - [ ] Option to display or not drafts
+- [x] Command to start local server
+  - [x] Option to display or not drafts
 - [ ] Deploy BlogOps to the repository of my blog
 
 ## V1.1
