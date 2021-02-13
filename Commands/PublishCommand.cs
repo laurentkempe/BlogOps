@@ -15,36 +15,35 @@ namespace BlogOps.Commands
     [UsedImplicitly]
     public class PublishCommand : ICommand
     {
-        [CommandParameter(0, Description = "Filename of the draft.")]
-        public string Filename { get; set; }
-
         [CommandOption("Overwrite", 'o', Description = "Overwrite file if it exists.")]
         public bool Overwrite { get; set; } = false;
 
         public async ValueTask ExecuteAsync(IConsole console)
         {
-            var destinationPostPath = Path.Combine(BlogSettings.PostsFolder, Filename);
+            var (draftFileInfo, draftFrontMatter) = await BlogUtils.AskUserToSelectDraft("Which draft do you want to publish?");
 
-            if (!Overwrite && File.Exists(destinationPostPath))
+            var blogPostPath = Path.Combine(BlogSettings.PostsFolder, draftFileInfo.Name);
+
+            if (!Overwrite && File.Exists(blogPostPath))
             {
                 await console.Output.WriteLineAsync($"File exists, please use {nameof(Overwrite)} parameter.");
 
                 return;
             }
 
-            var updateDraftLines = await GetUpdatedDraftFrontMatter();
+            var updatedDraftLines = await GetUpdatedDraftFrontMatterLines(draftFileInfo.FullName, draftFrontMatter);
 
-            await File.WriteAllLinesAsync(destinationPostPath, updateDraftLines);
+            await File.WriteAllLinesAsync(blogPostPath, updatedDraftLines);
+            File.Delete(draftFileInfo.FullName);
             
-            AnsiConsole.Markup($"Published [green]{destinationPostPath}[/]");
+            AnsiConsole.Markup($"Published [green]{blogPostPath}[/]");
         }
 
-        private async Task<string[]> GetUpdatedDraftFrontMatter()
+        private async Task<string[]> GetUpdatedDraftFrontMatterLines(string fileInfoFullName, BlogFrontMatter draftFrontMatter)
         {
-            var sourceDraftPath = Path.Combine(BlogSettings.DraftsFolder, Filename);
+            var sourceDraftPath = Path.Combine(BlogSettings.DraftsFolder, fileInfoFullName);
             var draftContent = await File.ReadAllTextAsync(sourceDraftPath);
 
-            var draftFrontMatter = draftContent.GetFrontMatter<BlogFrontMatter>();
             var draftContentLines = draftContent.Split(Environment.NewLine);
 
             UpdateDraftFrontMatter(draftContentLines, draftFrontMatter);

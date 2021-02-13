@@ -4,6 +4,7 @@ using System.Globalization;
 using System.IO;
 using System.Threading.Tasks;
 using BlogOps.Commands.Utils;
+using Spectre.Console;
 
 namespace BlogOps.Commands.Blog
 {
@@ -28,6 +29,26 @@ namespace BlogOps.Commands.Blog
             {
                 yield return await GetDraftInfo(draftPath);
             }            
+        }
+
+        public static async Task<(FileInfo fileInfo, BlogFrontMatter draftFrontMatter)> AskUserToSelectDraft(string userQuestion)
+        {
+            var drafts = new Dictionary<string, (FileInfo fileInfo, BlogFrontMatter draftFrontMatter)>();
+
+            await foreach (var draftInfo in GetDraftInfos())
+            {
+                drafts.Add(draftInfo.draftFrontMatter.Title, draftInfo);
+            }
+
+            var draft = AnsiConsole.Prompt(
+                new SelectionPrompt<string>()
+                    .Title(userQuestion)
+                    .PageSize(10)
+                    .AddChoices(drafts.Keys));
+
+            AnsiConsole.WriteLine($"You selected '{draft}'!");
+
+            return drafts[draft];
         }
 
         private static async Task<(FileInfo fileInfo, BlogFrontMatter draftFrontMatter)> GetDraftInfo(string draftPath)
