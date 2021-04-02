@@ -13,8 +13,21 @@ Inspired by [Frankenblog](https://khalidabuhakmeh.com/supercharge-blogging-with-
 Create the NuGet package
 > dotnet pack -c Release
 
-Installing BlogOps, from the blog folder
-> dotnet tool install --tool-path . --add-source ..\BlogOps\nupkg\ BlogOps
+Installing BlogOps globally
+> dotnet tool install --global --add-source .\nupkg\ BlogOps
+
+Utility to start blogging with Windows Terminal
+
+        {
+            "command": 
+            {
+                "action": "wt",
+                "commandline": "; split-pane -p \"Powershell\" --startingDirectory \"C:\\Users\\XYZ\\\\blog\" BlogOps.exe edit ; split-pane --horizontal -p \"Powershell\" --startingDirectory \"C:\\Users\\XYZ\\blog\" BlogOps.exe server --draft",
+                "startingDirectory": "C:\\Users\\XYZ\\blog\\"
+            },
+            "keys": "alt+shift+e",
+            "name": "Blog"
+        }
 
 # Road Map
 
