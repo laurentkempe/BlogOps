@@ -8,6 +8,14 @@ Inspired by [Frankenblog](https://khalidabuhakmeh.com/supercharge-blogging-with-
 * [.NET 5](https://dotnet.microsoft.com/download/dotnet/5.0)
 * [Hexo](https://hexo.io/) running with [Node.js](https://nodejs.org/en/)
 
+## Installation
+
+Create the NuGet package
+> dotnet pack -c Release
+
+Installing BlogOps, from the blog folder
+> dotnet tool install --tool-path . --add-source ..\BlogOps\nupkg\ BlogOps
+
 # Road Map
 
 ## V1
@@ -23,6 +31,7 @@ Inspired by [Frankenblog](https://khalidabuhakmeh.com/supercharge-blogging-with-
 
 ## V1.1
 - [x] Command to edit a draft
+- [x] Make BlogOps a dotnet tool
 - [ ] Command to rename a draft
 
 ## V2
