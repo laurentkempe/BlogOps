@@ -30,7 +30,7 @@ namespace BlogOps.Commands
             stringBuilder.AppendLine($"date: {now}");
             stringBuilder.AppendLine(now.ToDisqusIdentifier());
             stringBuilder.AppendLine("coverSize: partial");
-            stringBuilder.AppendLine("tags: ASP.NET Core, Microsoft Azure, Docker");
+            stringBuilder.AppendLine("tags: [ASP.NET Core, Microsoft Azure, Docker]");
             stringBuilder.AppendLine("coverCaption: 'LO Ferré, Petite Anse, Martinique, France'");
             stringBuilder.AppendLine("coverImage: 'https://c7.staticflickr.com/9/8689/16775792438_e45283970c_h.jpg'");
             stringBuilder.AppendLine("thumbnailImage: 'https://c7.staticflickr.com/9/8689/16775792438_8366ee5732_q.jpg'");

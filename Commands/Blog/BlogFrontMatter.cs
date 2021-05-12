@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Collections.Generic;
 using JetBrains.Annotations;
 using YamlDotNet.Serialization;
 
@@ -22,7 +20,7 @@ namespace BlogOps.Commands.Blog
         public string DisqusIdentifier { get; set; }
         
         [YamlMember(Alias = "tags", Order = 5)]
-        public string Tags { get; set; }
+        public List<string> Tags { get; set; }
     
         [YamlMember(Alias = "coverSize", Order = 4)]
         public string CoverSize { get; set; }
@@ -35,10 +33,5 @@ namespace BlogOps.Commands.Blog
 
         [YamlMember(Alias = "thumbnailImage", Order = 8)]
         public string ThumbnailImage { get; set; }
-
-        [YamlIgnore]
-        public IList<string> GetTags => Tags?
-            .Split(",", StringSplitOptions.RemoveEmptyEntries)
-            .Select(x => x.Trim())
-            .ToArray();    }
+    }
 }

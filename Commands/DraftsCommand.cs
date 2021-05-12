@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System.Linq;
+using System.Threading.Tasks;
 using BlogOps.Commands.Blog;
 using CliFx;
 using CliFx.Attributes;
@@ -23,7 +24,7 @@ namespace BlogOps.Commands
 
             await foreach (var (fileInfo, draftFrontMatter) in BlogUtils.GetDraftInfos())
             {
-                table.AddRow($"{fileInfo.Name}", $"{draftFrontMatter.Title}", $"[green]{draftFrontMatter.Date}[/]", $"{draftFrontMatter.Tags}", $"{draftFrontMatter.PermaLink}");
+                table.AddRow($"{fileInfo.Name}", $"{draftFrontMatter.Title}", $"[green]{draftFrontMatter.Date}[/]", $"{string.Join(", ", draftFrontMatter.Tags)}", $"{draftFrontMatter.PermaLink}");
             }
 
             AnsiConsole.Render(table);
