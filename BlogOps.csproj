@@ -12,7 +12,7 @@
     <Description>Tool to operate my blog at https://laurentkempe.com/.</Description>
     <Copyright>Laurent Kempé</Copyright>
     <PackageProjectUrl>https://github.com/laurentkempe/BlogOps</PackageProjectUrl>
-    <PackageLicenseUrl>https://github.com/laurentkempe/BlogOps#license</PackageLicenseUrl>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <RepositoryUrl>https://github.com/laurentkempe/BlogOps</RepositoryUrl>
   </PropertyGroup>
 
