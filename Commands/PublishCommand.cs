@@ -17,7 +17,7 @@ namespace BlogOps.Commands;
 public class PublishCommand : ICommand
 {
     [CommandOption("Overwrite", 'o', Description = "Overwrite file if it exists.")]
-    public bool Overwrite { get; set; } = false;
+    public bool Overwrite { get; init; } = false;
 
     public async ValueTask ExecuteAsync(IConsole console)
     {
@@ -40,7 +40,7 @@ public class PublishCommand : ICommand
         AnsiConsole.Markup($"Published [green]{blogPostPath}[/]");
     }
 
-    private async Task<string[]> GetUpdatedDraftFrontMatterLines(string fileInfoFullName, BlogFrontMatter draftFrontMatter)
+    private static async Task<string[]> GetUpdatedDraftFrontMatterLines(string fileInfoFullName, BlogFrontMatter draftFrontMatter)
     {
         var sourceDraftPath = Path.Combine(BlogSettings.DraftsFolder, fileInfoFullName);
         var draftContent = await File.ReadAllTextAsync(sourceDraftPath);
