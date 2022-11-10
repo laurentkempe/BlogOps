@@ -28,6 +28,6 @@ public class DraftsCommand : ICommand
             table.AddRow($"{fileInfo.Name}", $"{draftFrontMatter.Title}", $"[green]{draftFrontMatter.Date}[/]", $"{string.Join(", ", draftFrontMatter.Tags)}", $"{draftFrontMatter.PermaLink}");
         }
 
-        AnsiConsole.Render(table);
+        AnsiConsole.Write(table);
     }
 }
