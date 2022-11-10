@@ -5,7 +5,7 @@ Inspired by [Frankenblog](https://khalidabuhakmeh.com/supercharge-blogging-with-
 
 ## Uses
 
-* [.NET 5](https://dotnet.microsoft.com/download/dotnet/5.0)
+* [.NET 7](https://dotnet.microsoft.com/download/dotnet/7.0)
 * [Hexo](https://hexo.io/) running with [Node.js](https://nodejs.org/en/)
 
 ## Installation
