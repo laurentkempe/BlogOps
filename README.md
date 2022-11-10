@@ -10,6 +10,8 @@ Inspired by [Frankenblog](https://khalidabuhakmeh.com/supercharge-blogging-with-
 
 ## Installation
 
+> ⚠️ Use Rider Release & Install run configuration or manually
+
 Create the NuGet package
 > dotnet pack -c Release
 

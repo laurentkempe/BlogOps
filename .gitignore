@@ -429,7 +429,7 @@ $RECYCLE.BIN/
 *.lnk
 
 # JetBrains Rider
-.idea/
+#.idea/
 *.sln.iml
 
 ##
