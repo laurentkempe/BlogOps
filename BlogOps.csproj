@@ -2,12 +2,12 @@
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
-    <TargetFramework>net7.0</TargetFramework>
+    <TargetFramework>net9.0</TargetFramework>
     <EnableNETAnalyzers>true</EnableNETAnalyzers>
 </PropertyGroup>
 
   <PropertyGroup>
-    <Version>1.0.2</Version>
+    <Version>1.0.3</Version>
     <Author>Laurent Kempé</Author>
   </PropertyGroup>
   
@@ -33,12 +33,12 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="CliFx" Version="2.3.0" />
-    <PackageReference Include="JetBrains.Annotations" Version="2022.3.1" />
-    <PackageReference Include="Markdig" Version="0.30.4" />
-    <PackageReference Include="SimpleExec" Version="11.0.0" />
-    <PackageReference Include="Spectre.Console" Version="0.45.0" />
-    <PackageReference Include="YamlDotNet" Version="12.0.2" />
+    <PackageReference Include="CliFx" Version="2.3.5" />
+    <PackageReference Include="JetBrains.Annotations" Version="2024.3.0" />
+    <PackageReference Include="Markdig" Version="0.40.0" />
+    <PackageReference Include="SimpleExec" Version="12.0.0" />
+    <PackageReference Include="Spectre.Console" Version="0.49.1" />
+    <PackageReference Include="YamlDotNet" Version="16.3.0" />
   </ItemGroup>
 
 </Project>
