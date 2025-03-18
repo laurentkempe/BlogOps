@@ -25,10 +25,15 @@ public static class BlogUtils
 
     public static async IAsyncEnumerable<(FileInfo fileInfo, BlogFrontMatter draftFrontMatter)> GetDraftInfos()
     {
-        foreach (var draftPath in Directory.GetFiles(BlogSettings.DraftsFolder))
+        foreach (var blogPost in Directory.GetFiles(BlogSettings.PostsFolder, "*.mdx", SearchOption.AllDirectories))
         {
-            yield return await GetDraftInfo(draftPath);
-        }            
+            var draftInfo = await GetDraftInfo(blogPost);
+
+            if (draftInfo.draftFrontMatter.Draft)
+            {
+                yield return draftInfo;
+            }
+        }
     }
 
     public static async Task<(FileInfo fileInfo, BlogFrontMatter draftFrontMatter)> AskUserToSelectDraft(string userQuestion)

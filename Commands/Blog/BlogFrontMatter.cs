@@ -33,4 +33,7 @@ public class BlogFrontMatter
 
     [YamlMember(Alias = "thumbnailImage", Order = 8)]
     public string ThumbnailImage { get; set; }
+
+    [YamlMember(Alias = "draft", Order = 9)]
+    public bool Draft { get; set; }
 }
