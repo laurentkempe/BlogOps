@@ -11,13 +11,8 @@ namespace BlogOps.Commands;
 [UsedImplicitly]
 public class ServerCommand : ICommand
 {
-    [CommandOption("draft", 'd', Description = "With draft.")]
-    public bool Draft { get; set; } = false;
-
     public async ValueTask ExecuteAsync(IConsole console)
     {
-        var draft = Draft ? "--draft" : "";
-            
-        await Command.RunAsync("hexo.cmd", $"server --open {draft}", "./");
+        await Command.RunAsync("pnpm", $"run dev", "./");
     }
 }
