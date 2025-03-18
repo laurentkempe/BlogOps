@@ -13,6 +13,7 @@ public static class BlogUtils
     private const string Permalink = "permalink:";
     private const string Disqusidentifier = "disqusIdentifier:";
     private const string Date = "date:";
+    private const string Draft = "draft:";
 
     public static bool IsPermalinkLine(this string line) => line.StartsWith(Permalink);
     public static string ToPermalink(this DateTime date, string slug) => $"{Permalink} /{date:yyyy/MM/dd}/{slug}/";
@@ -22,6 +23,8 @@ public static class BlogUtils
 
     public static bool IsDateLine(this string contentLine) => contentLine.StartsWith(Date);
     public static string ToDate(this DateTime date) => $"{Date} {date.ToString(CultureInfo.InvariantCulture)}";
+
+    public static bool IsDraftLine(this string contentLine) => contentLine.StartsWith(Draft);
 
     public static async IAsyncEnumerable<(FileInfo fileInfo, BlogFrontMatter draftFrontMatter)> GetDraftInfos()
     {
