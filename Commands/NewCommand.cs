@@ -23,37 +23,52 @@ public class NewCommand : ICommand
     {
         var now = DateTime.Now;
         var slug = Title.ToUrlSlug();
-            
+        
         var stringBuilder = new StringBuilder();
-        stringBuilder.AppendLine("---");
-        stringBuilder.AppendLine($"title: '{Title}'");
-        stringBuilder.AppendLine(now.ToPermalink(slug));
-        stringBuilder.AppendLine($"date: {now}");
-        stringBuilder.AppendLine(now.ToDisqusIdentifier());
-        stringBuilder.AppendLine("coverSize: partial");
-        stringBuilder.AppendLine("tags: [ASP.NET Core, Microsoft Azure, Docker]");
-        stringBuilder.AppendLine("coverCaption: 'LO Ferré, Petite Anse, Martinique, France'");
-        stringBuilder.AppendLine("coverImage: 'https://c7.staticflickr.com/9/8689/16775792438_e45283970c_h.jpg'");
-        stringBuilder.AppendLine("thumbnailImage: 'https://c7.staticflickr.com/9/8689/16775792438_8366ee5732_q.jpg'");
-        stringBuilder.AppendLine("---");
-        stringBuilder.AppendLine("Text displayed on the home page");
-        stringBuilder.AppendLine("<!-- more -->");
-        stringBuilder.AppendLine("Continue with text displayed on the blog page");
-        stringBuilder.AppendLine("![alt image](https://live.staticflickr.com/65535/49566323082_e1817988c2_c.jpg)");
-        stringBuilder.AppendLine("{% alert info %}");
-        stringBuilder.AppendLine("{% endalert %}");
-        stringBuilder.AppendLine("{% codeblock GreeterService.cs lang:csharp %}");
-        stringBuilder.AppendLine("{% endcodeblock %}");
-        stringBuilder.AppendLine("# Conclusion");
-        stringBuilder.AppendLine("TODO");
-        stringBuilder.AppendLine("<p></p>");
-        stringBuilder.AppendLine("{% githubCard user:laurentkempe repo:dotfiles align:left %}");
+        stringBuilder.AppendLine($$"""
+                                   ---
+                                   title: '{{Title}}'
+                                   {{now.ToPermalink(slug)}}
+                                   date: {{now}}
+                                   {{now.ToDisqusIdentifier()}}
+                                   coverSize: partial
+                                   tags: [AI, ASP.NET Core, C#, LLM, SLM, Docker]
+                                   coverCaption: 'LO Ferré, Petite Anse, Martinique, France'
+                                   coverImage: 'https://c7.staticflickr.com/9/8689/16775792438_e45283970c_h.jpg'
+                                   thumbnailImage: 'https://c7.staticflickr.com/9/8689/16775792438_8366ee5732_q.jpg'
+                                   draft: true
+                                   ---
+                                   Text displayed on the home page
+                                   {/* <!-- more --> */}
+                                   # Introduction
+                                   # Requirements
+                                   Continue with text displayed on the blog page
+                                   ![alt image](https://live.staticflickr.com/65535/49566323082_e1817988c2_c.jpg)
+                                   ![alt iamge](/images/2025/dotnet-aspire_jetbrains-rider-services.png)
+                                   <Alert mode="warning">
+                                   This is a warning.
+                                   </Alert>
+                                   <Alert mode="info">
+                                   This is a info.
+                                   </Alert>
+                                   ```csharp
+                                   var now = DateTime.Now;
+                                   var slug = Title.ToUrlSlug();
+                                   ```
+                                   # Conclusion
+                                   TODO
+                                   # References
+                                   * [GitHub](https://github.com/laurentkempe/aiPlayground)
+                                   
+                                   Get the source code on GitHub [laurentkempe/aiPlayground/OllamaMCPServerMicrosoftExtensions](TODO).
+                                   
+                                   <GitHubCard user="laurentkempe" repo="aiPlayground" />
+                                   """);
 
-        var filename = $"{slug}.md";
-        var path = Path.Combine(BlogSettings.DraftsFolder, filename);
-            
+        var filename = $"{slug}.mdx";
+        var path = Path.Combine(BlogSettings.PostsFolder, DateTime.Now.Year.ToString(), filename);
+        
         await File.WriteAllTextAsync(path, stringBuilder.ToString());
-            
+        
         AnsiConsole.Markup($"Successfully created [green]{filename}[/]");
-    }
-}
+    }}
